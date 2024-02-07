@@ -59,6 +59,22 @@ describe('<Popover />', () => {
   const { clock, render } = createRenderer({ clock: 'fake' });
   const mount = createMount();
 
+  beforeEach(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      html, body {
+        margin: 0;
+        padding: 0;
+      }`;
+
+    style.setAttribute('data-styleid', 'global-reset');
+    document.head.appendChild(style);
+  });
+
+  afterEach(() => {
+    document.head.querySelector('[data-styleid="global-reset"]').remove();
+  });
+
   describeConformance(<Popover anchorEl={() => createAnchor()} open />, () => ({
     classes,
     inheritComponent: Modal,
