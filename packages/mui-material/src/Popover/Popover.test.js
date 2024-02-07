@@ -18,8 +18,8 @@ import { getOffsetLeft, getOffsetTop } from './Popover';
 import useForkRef from '../utils/useForkRef';
 import styled from '../styles/styled';
 
-function createAnchor(element = 'div') {
-  const anchor = document.createElement(element);
+function createAnchor() {
+  const anchor = document.createElement('div');
   document.body.appendChild(anchor);
   return anchor;
 }
@@ -862,7 +862,7 @@ describe('<Popover />', () => {
 
   describe('prop: marginThreshold', () => {
     [0, 18, 16].forEach((marginThreshold) => {
-      function getElementStyleOfOpenPopover(anchorEl = createAnchor('svg')) {
+      function getElementStyleOfOpenPopover(anchorEl = createAnchor()) {
         let style;
         render(
           <Popover

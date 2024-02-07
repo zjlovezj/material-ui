@@ -11,8 +11,8 @@ import { ThemeProvider, createTheme } from '@mui/system';
 import Grow from '@mui/material/Grow';
 import Popper from '@mui/material/Popper';
 
-function createAnchor(element = 'div') {
-  const anchor = document.createElement(element);
+function createAnchor() {
+  const anchor = document.createElement('div');
   document.body.appendChild(anchor);
   return anchor;
 }
@@ -21,7 +21,7 @@ describe('<Popper />', () => {
   let rtlTheme;
   const { clock, render } = createRenderer({ clock: 'fake' });
   const defaultProps = {
-    anchorEl: () => createAnchor('svg'),
+    anchorEl: () => createAnchor(),
     children: <span>Hello World</span>,
     open: true,
   };
